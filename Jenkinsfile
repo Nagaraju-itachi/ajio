@@ -5,9 +5,6 @@ pipeline {
         PATH = "/opt/maven/bin:$PATH"
     }
 
-    tools {
-        maven 'Maven' // Make sure Maven is configured under Jenkins tools
-    }
 
     stages {
         stage('Checkout Code') {
