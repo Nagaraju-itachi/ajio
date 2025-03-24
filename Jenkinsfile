@@ -19,15 +19,12 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('Nagaraju-itachi-Sonar') {
-                    def scannerHome = tool 'nagaraju-itachi-sonar-scanner'
-                    sh "${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.projectKey=nagaraju-itachi \
-                        -Dsonar.sources=. \
-                        -Dsonar.java.binaries=target"
-                }
-            }
-        }
-    }
+			steps {
+				withSonarQubeEnv('Nagaraju-itachi-Sonar') {
+				def scannerHome = tool 'nagaraju-itachi-sonar-scanner'
+				sh "${scannerHome}/bin/sonar-scanner"
+				}
+			}
+		}
+	}
 }
