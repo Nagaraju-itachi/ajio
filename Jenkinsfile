@@ -3,27 +3,30 @@ pipeline {
 
     environment {
         PATH = "/opt/maven/bin:$PATH"
+        SONAR_SCANNER_HOME = tool 'Nagaraju-itachi-sonar-scanner'
     }
 
-
     stages {
-        stage('Checkout Code') {
+        stage('GIT CLONE') {
             steps {
-                git url: 'https://github.com/Nagaraju-itachi/ajio.git', branch: 'main'
+                git url: "https://github.com/Nagaraju-itachi/ajio.git", branch: "main"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('Nagaraju-itachi-Sonar') {
-                    sh 'mvn clean verify sonar:sonar'
+                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner \
+                        -Dsonar.projectKey=nagaraju-itachi \
+                        -Dsonar.sources=. \
+                        -Dsonar.java.binaries=target"
                 }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'mvn package'
             }
         }
     }
