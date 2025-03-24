@@ -22,10 +22,10 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('Nagaraju-itachi-Sonar') {
-                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=nagaraju-itachi \
-                        -Dsonar.sources=. \
-                        -Dsonar.java.binaries=target"
+                    sh '/opt/sonar-scanner/bin/sonar-scanner \
+						-Dsonar.projectKey=nagaraju-itachi \
+						-Dsonar.sources=. \
+						-Dsonar.java.binaries=target'
                 }
             }
         }
