@@ -18,7 +18,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQubeCloud') {
+                withSonarQubeEnv('Nagaraju-itachi-Sonar') {
                     sh 'mvn clean verify sonar:sonar'
                 }
             }
