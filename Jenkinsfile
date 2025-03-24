@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         PATH = "/opt/maven/bin:$PATH"
-        SONAR_SCANNER_HOME = tool 'Nagaraju-itachi-sonar-scanner'
     }
 
     stages {
@@ -22,10 +21,11 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('Nagaraju-itachi-Sonar') {
-                    sh '/opt/sonar-scanner/bin/sonar-scanner \
-						-Dsonar.projectKey=nagaraju-itachi \
-						-Dsonar.sources=. \
-						-Dsonar.java.binaries=target'
+                    def scannerHome = tool 'nagaraju-itachi-sonar-scanner'
+                    sh "${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=nagaraju-itachi \
+                        -Dsonar.sources=. \
+                        -Dsonar.java.binaries=target"
                 }
             }
         }
