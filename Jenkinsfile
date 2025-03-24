@@ -19,9 +19,12 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
+		environment {
+			scannerHome = tool "Nagaraju-itachi-sonar-scanner"
+		}
 			steps {
-				withSonarQubeEnv('Nagaraju-itachi-Sonar') {
-				def scannerHome = tool 'nagaraju-itachi-sonar-scanner'
+				withSonarQubeEnv('Nagaraju-itachi-Sonar-server') {
+				
 				sh "${scannerHome}/bin/sonar-scanner"
 				}
 			}
