@@ -55,7 +55,7 @@ pipeline {
 				script {
 					timeout (time:1,unit:"HOURS"){
 						def qg = waitForQualityGate()
-						if (qg.states =/= "OK"){
+						if (qg.status != 'OK'){
 						echo "warning:Qulaity gate failed but continuouning pipeline:${qg.status}"
 						}
 					}
