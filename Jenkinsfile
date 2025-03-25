@@ -18,11 +18,11 @@ pipeline {
 
         stage('SonarQube Analysis') {
 		environment {
-			scannerHome = tool "Nagaraju-itachi-sonar-scanner"
+			SONAR_SCANNER_HOME = tool "Nagaraju-itachi-sonar-scanner"
 		}
 			steps {
 				withSonarQubeEnv('Nagaraju-itachi-Sonar-server') {
-					sh"${SONAR_SCANNER_HOME}/bin/sonar-scanner \						
+					sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner \						
 						-Dsonar.verbose=true \
 						-Dsonar.organization=nagarajusonar \
 						-Dsonar.projectKey=nagarajusonar_nagarajutrend \
