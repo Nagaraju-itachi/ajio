@@ -24,7 +24,8 @@ pipeline {
 			steps {
 				withSonarQubeEnv('Nagaraju-itachi-Sonar-server') {
 					sh """
-						${SONAR_SCANNER_HOME}/bin/sonar-scanner						
+						${SONAR_SCANNER_HOME}/bin/sonar-scanner
+      						/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/Nagaraju-itachi-sonar-scanner/bin/sonar-scanner
 						-Dsonar.verbose=true
 						-Dsonar.organization=nagarajusonar
 						-Dsonar.projectKey=nagarajusonar_nagarajutrend
