@@ -27,7 +27,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
+  <distributionManagement>
+    <repository>
+        <id>jfrog-release</id>
+        <url>https://nagatrail.jfrog.io/artifactory/naga-libs-release/</url>
+    </repository>
+    <snapshotRepository>
+        <id>jfrog-snapshot</id>
+        <url>https://nagatrail.jfrog.io/artifactory/naga-libs-snapshot-local/</url>
+    </snapshotRepository>
+</distributionManagement>
   <build>
     <finalName>ajio</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
