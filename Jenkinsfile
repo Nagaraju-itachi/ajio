@@ -23,17 +23,17 @@ pipeline {
 			steps {
 				withSonarQubeEnv('Nagaraju-itachi-Sonar-server') {
 					sh """
-						${SONAR_SCANNER_HOME}/bin/sonar-scanner \						
-						-Dsonar.verbose=true \
-						-Dsonar.organization=nagarajusonar \
-						-Dsonar.projectKey=nagarajusonar_nagarajutrend \
-						-Dsonar.projectName=nagarajusonar \
-						-Dsonar.language=java \
-						-Dsonar.sourceEncoding=UTF-8 \
-						-Dsonar.sources=. \
-						-Dsonar.java.binaries=target/classes \
-						-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
-						-Dsonar.host.url=https://sonarcloud.io \
+						${SONAR_SCANNER_HOME}/bin/sonar-scanner						
+						-Dsonar.verbose=true
+						-Dsonar.organization=nagarajusonar
+						-Dsonar.projectKey=nagarajusonar_nagarajutrend
+						-Dsonar.projectName=nagarajusonar
+						-Dsonar.language=java
+						-Dsonar.sourceEncoding=UTF-8
+						-Dsonar.sources=.
+						-Dsonar.java.binaries=target/classes
+						-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+						-Dsonar.host.url=https://sonarcloud.io
 						-Dsonar.login=864f20bee125380caa9956d1238aea9cd846ab88
 						"""
 				}
