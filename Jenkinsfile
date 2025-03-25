@@ -19,6 +19,7 @@ pipeline {
         stage('SonarQube Analysis') {
 		environment {
 			SONAR_SCANNER_HOME = tool "Nagaraju-itachi-sonar-scanner"
+			SONAR_TOKEN = 864f20bee125380caa9956d1238aea9cd846ab88
 		}
 			steps {
 				withSonarQubeEnv('Nagaraju-itachi-Sonar-server') {
@@ -34,7 +35,7 @@ pipeline {
 						-Dsonar.java.binaries=target/classes
 						-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 						-Dsonar.host.url=https://sonarcloud.io
-						-Dsonar.login=864f20bee125380caa9956d1238aea9cd846ab88
+						-Dsonar.login=${SONAR_TOKEN}
 						"""
 				}
 			}
