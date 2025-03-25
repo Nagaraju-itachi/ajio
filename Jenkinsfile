@@ -12,7 +12,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+				echo " -- Build started -- "
+                sh 'mvn clean deploy -D maven.test.sleep=true'
+				echo " -- Build Completed -- "
+            }
+        }
+		
+		stage('Test') {
+            steps {
+				echo " -- Unit Test started -- "
+                sh 'mvn surefire-report:report'
+				echo " -- Unit Test Completed -- "
             }
         }
 
