@@ -19,7 +19,7 @@ pipeline {
         stage('SonarQube Analysis') {
 		environment {
 			SONAR_SCANNER_HOME = tool "Nagaraju-itachi-sonar-scanner"
-			SONAR_TOKEN = 864f20bee125380caa9956d1238aea9cd846ab88
+			SONAR_TOKEN = "864f20bee125380caa9956d1238aea9cd846ab88"
 		}
 			steps {
 				withSonarQubeEnv('Nagaraju-itachi-Sonar-server') {
