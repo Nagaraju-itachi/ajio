@@ -12,7 +12,6 @@ pipeline {
 				echo "-- Build Completed"
 			}
 		}
-	stages {
         	stage('GIT CLONE') {
             		steps {
                 		git url: "https://github.com/Nagaraju-itachi/ajio.git", branch: "main"
